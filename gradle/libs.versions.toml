@@ -1,22 +1,55 @@
 [versions]
-agp = "8.7.2"
-kotlin = "1.9.24"
+kotlin = "2.1.10"
 coreKtx = "1.15.0"
+ksp = "2.1.10-1.0.31"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.6.1"
 material = "1.10.0"
+androidGradlePlugin = "8.7.2"
+androidTools = "31.9.0"
+androidxComposeBom = "2025.02.00"
+room = "2.6.1"
+kotlinxCoroutines = "1.10.1"
 
 [libraries]
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom-alpha", version.ref = "androidxComposeBom" }
+
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+
+# dependencies of build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
+compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+room-gradlePlugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room" }
+
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+room = { id = "androidx.room", version.ref = "room" }
 
+# Plugins defined in this project
+inmo-android-application = { id = "inmo.android.application" }
+inmo-android-application-compose = { id = "inmo.android.application.compose" }
+inmo-android-feature = { id = "inmo.android.feature" }
+inmo-android-library = { id = "inmo.android.library" }
+inmo-android-library-compose = { id = "inmo.android.library.compose" }
+inmo-android-room = { id = "inmo.android.room" }
+inmo-hilt = { id = "inmo.hilt" }
+inmo-jvm-library = { id = "inmo.jvm.library" }
