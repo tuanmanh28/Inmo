@@ -1,6 +1,7 @@
 import com.android.build.api.dsl.ApplicationExtension
-import com.android.build.api.variant.ApplicationAndroidComponentsExtension
+import com.tuanmanh.inmo.androidTargetSdk
 import com.tuanmanh.inmo.configureKotlinAndroid
+import com.tuanmanh.inmo.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
@@ -14,7 +15,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
             extensions.configure<ApplicationExtension> {
                 configureKotlinAndroid(this)
-                defaultConfig.targetSdk = 35
+                defaultConfig.targetSdk = libs.androidTargetSdk
             }
         }
     }

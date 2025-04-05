@@ -1,4 +1,5 @@
 import com.android.build.gradle.LibraryExtension
+import com.tuanmanh.inmo.androidTargetSdk
 import com.tuanmanh.inmo.configureKotlinAndroid
 import com.tuanmanh.inmo.libs
 import org.gradle.api.Plugin
@@ -16,19 +17,10 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
-                defaultConfig.targetSdk = 35
-
-
-                // The resource prefix is derived from the module name,
-                // so resources inside ":core:module" must be prefixed with "core_module_"
-                resourcePrefix =
-                    path.split("""\W""".toRegex()).drop(1).distinct().joinToString(separator = "_")
-                        .lowercase() + "_"
+                defaultConfig.targetSdk = libs.androidTargetSdk
             }
 
-            dependencies {
-                "implementation"(libs.findLibrary("android.tracing.ktx").get())
-            }
+            dependencies {}
         }
     }
 }

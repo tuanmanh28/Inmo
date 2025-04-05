@@ -13,13 +13,13 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 
 internal fun Project.configureKotlinAndroid(
-    commonExtension: CommonExtension<*, *, *, *, *, *>,
+    commonExtension: CommonExtension<*, *, *, *, *,*>,
 ) {
     commonExtension.apply {
-        compileSdk = 35
+        compileSdk = libs.androidCompileSdk
 
         defaultConfig {
-            minSdk = 21
+            minSdk = libs.androidMinSdk
         }
 
         compileOptions {
@@ -34,10 +34,13 @@ internal fun Project.configureKotlinAndroid(
     configureKotlin<KotlinAndroidProjectExtension>()
 
     dependencies {
-        "coreLibraryDesugaring"(libs.findLibrary("android.desugarJdkLibs").get())
+        add("coreLibraryDesugaring", libs.findLibrary("android.desugarJdkLibs").get())
     }
 }
 
+/**
+ * Configure base Kotlin options for JVM (non-Android)
+ */
 internal fun Project.configureKotlinJvm() {
     extensions.configure<JavaPluginExtension> {
         // Up to Java 11 APIs are available through desugaring
@@ -49,6 +52,9 @@ internal fun Project.configureKotlinJvm() {
     configureKotlin<KotlinJvmProjectExtension>()
 }
 
+/**
+ * Configure base Kotlin options
+ */
 private inline fun <reified T : KotlinBaseExtension> Project.configureKotlin() = configure<T> {
     // Treat all Kotlin warnings as errors (disabled by default)
     // Override by setting warningsAsErrors=true in your ~/.gradle/gradle.properties

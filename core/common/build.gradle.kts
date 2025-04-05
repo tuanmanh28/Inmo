@@ -1,8 +1,9 @@
 plugins {
-    alias(libs.plugins.inmo.jvm.library)
-    alias(libs.plugins.inmo.hilt)
+    alias(libs.plugins.project.android.library)
+    alias(libs.plugins.project.hilt)
+}
+android {
+    namespace = "com.tuanmanh.inmo.core.common"
 }
 
-dependencies{
-    implementation(libs.kotlinx.coroutines.core)
-}
+dependencies {}

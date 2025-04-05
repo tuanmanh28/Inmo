@@ -7,7 +7,7 @@ import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 
-class AndroidRoomConventionPlugin: Plugin<Project> {
+class AndroidRoomConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             apply(plugin = "androidx.room")
@@ -24,9 +24,9 @@ class AndroidRoomConventionPlugin: Plugin<Project> {
             }
 
             dependencies {
-                "implementation"(libs.findLibrary("room.runtime").get())
-                "implementation"(libs.findLibrary("room.ktx").get())
-                "ksp"(libs.findLibrary("room.compiler").get())
+                implementation(libs.findLibrary("room.runtime").get())
+                implementation(libs.findLibrary("room.ktx").get())
+                ksp(libs.findLibrary("room.compiler").get())
             }
         }
     }

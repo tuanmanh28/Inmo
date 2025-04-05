@@ -27,6 +27,8 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Inmo"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 
 include(":core:common")

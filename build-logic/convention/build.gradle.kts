@@ -39,7 +39,7 @@ gradlePlugin {
             /**
              * refer to [AndroidApplicationComposeConventionPlugin]
              */
-            id = libs.plugins.inmo.android.application.compose.get().pluginId
+            id = libs.plugins.project.android.application.compose.get().pluginId
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
 
@@ -47,49 +47,49 @@ gradlePlugin {
             /**
              * refer to [AndroidApplicationConventionPlugin]
              */
-            id = libs.plugins.inmo.android.application.asProvider().get().pluginId
+            id = libs.plugins.project.android.application.asProvider().get().pluginId
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("androidLibraryCompose") {
             /**
              * refer to [AndroidLibraryComposeConventionPlugin]
              */
-            id = libs.plugins.inmo.android.library.compose.get().pluginId
+            id = libs.plugins.project.android.library.compose.get().pluginId
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
         register("androidLibrary") {
             /**
              * refer to [AndroidLibraryConventionPlugin]
              */
-            id = libs.plugins.inmo.android.library.asProvider().get().pluginId
+            id = libs.plugins.project.android.library.asProvider().get().pluginId
             implementationClass = "AndroidLibraryConventionPlugin"
         }
         register("androidFeature") {
             /**
              * refer to [AndroidFeatureConventionPlugin]
              */
-            id = libs.plugins.inmo.android.feature.get().pluginId
+            id = libs.plugins.project.android.feature.get().pluginId
             implementationClass = "AndroidFeatureConventionPlugin"
         }
         register("hilt") {
             /**
              * refer to [HiltConventionPlugin]
              */
-            id = libs.plugins.inmo.hilt.get().pluginId
+            id = libs.plugins.project.hilt.get().pluginId
             implementationClass = "HiltConventionPlugin"
         }
         register("androidRoom") {
             /**
              * refer to [AndroidRoomConventionPlugin]
              */
-            id = libs.plugins.inmo.android.room.get().pluginId
+            id = libs.plugins.project.android.room.get().pluginId
             implementationClass = "AndroidRoomConventionPlugin"
         }
         register("jvmLibrary") {
             /**
              * refer to [JvmLibraryConventionPlugin]
              */
-            id = libs.plugins.inmo.jvm.library.get().pluginId
+            id = libs.plugins.project.jvm.library.get().pluginId
             implementationClass = "JvmLibraryConventionPlugin"
         }
     }
