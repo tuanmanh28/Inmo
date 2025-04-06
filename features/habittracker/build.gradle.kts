@@ -1,9 +1,12 @@
 plugins {
-    alias(libs.plugins.project.android.library)
+    alias(libs.plugins.project.android.feature)
+    alias(libs.plugins.project.android.library.compose)
     alias(libs.plugins.project.hilt)
 }
 android {
     namespace = "com.tuanmanh.inmo.features.habittracker"
 }
 
-dependencies {}
+dependencies {
+    implementation(projects.core.data)
+}

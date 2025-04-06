@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.project.android.application.compose)
     alias(libs.plugins.project.hilt)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
