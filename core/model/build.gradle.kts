@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.project.hilt)
 }
 android {
-    namespace = "com.tuanmanh.inmo.core.data"
+    namespace = "com.tuanmanh.inmo.core.model"
 }
 
 dependencies {}

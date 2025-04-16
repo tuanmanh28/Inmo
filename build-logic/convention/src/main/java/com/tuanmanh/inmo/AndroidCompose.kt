@@ -4,6 +4,7 @@ package com.tuanmanh.inmo
 import androidTestImplementation
 import com.android.build.api.dsl.CommonExtension
 import implementation
+import debugImplementation
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.withType
@@ -24,6 +25,8 @@ internal fun Project.configureAndroidCompose(
             implementation(libs.findLibrary("androidx.navigation.compose").get())
             implementation(libs.findLibrary("androidx.constraintlayout.compose").get())
             implementation(libs.findLibrary("accompanist.systemuicontroller").get())
+            implementation(libs.findLibrary("androidx-compose-ui-tooling-preview").get())
+            debugImplementation(libs.findLibrary("androidx-compose-ui-tooling").get())
         }
     }
     tasks.withType<KotlinCompile>().configureEach {

@@ -4,7 +4,7 @@ plugins {
     id("kotlinx-serialization")
 }
 android {
-    namespace = "com.tuanmanh.inmo.core.data"
+    namespace = "com.tuanmanh.inmo.core.network"
 }
 
 dependencies {

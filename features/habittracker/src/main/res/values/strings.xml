@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habit_tracker">Habit Tracker</string>
+    <string name="add_habit">Add Habit</string>
+    <string name="habit_name">Habit Name</string>
+    <string name="no_habits">No habits yet. Add your first habit!</string>
+    <string name="delete_habit">Delete habit</string>
+</resources>

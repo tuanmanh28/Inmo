@@ -2,14 +2,8 @@ package com.tuanmanh.inmo.features.habittracker
 
 import com.tuanmanh.inmo.core.model.Habit
 
-sealed interface HabitTrackerUiState {
-    data object Loading: HabitTrackerUiState
-
-    data object EmptyQuery : HabitTrackerUiState
-
-    data object LoadFailed : HabitTrackerUiState
-
-    data class Success(
-        val habits: List<Habit> = emptyList()
-    )
-}
+data class HabitTrackerUiState(
+    val habits: List<Habit> = emptyList(),
+    val isLoading: Boolean = false,
+    val error: String? = null
+)
