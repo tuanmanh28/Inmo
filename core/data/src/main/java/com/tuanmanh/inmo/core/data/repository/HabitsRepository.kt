@@ -4,9 +4,9 @@ import com.tuanmanh.inmo.core.model.Habit
 import kotlinx.coroutines.flow.Flow
 
 interface HabitsRepository {
-    suspend fun addHabit(habit: Habit)
-    suspend fun deleteHabit(habit: Habit)
-    suspend fun toggleHabit(id: String)
-    fun getHabits(): Flow<List<Habit>>
-    fun getHabit(id: String): Flow<Habit>
+    fun getAllHabits(): Flow<List<Habit>>
+    suspend fun toggleHabit(habitId: Long)
+    suspend fun deleteHabit(habitId: Long)
+    suspend fun addHabit(name: String)
+    suspend fun getHabitById(habitId: Long): Habit?
 }

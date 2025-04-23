@@ -1,5 +1,6 @@
 package com.tuanmanh.inmo.features.habittracker.navigation
 
-object HabitTrackerRoute {
-    const val ROUTE = "habit_tracker"
+sealed class HabitTrackerRoute(val route: String) {
+    object Tracker : HabitTrackerRoute("habit_tracker")
+    object List : HabitTrackerRoute("habit_tracker/list")
 } 

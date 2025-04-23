@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Inmo</string>
     <string name="habit_tracker">Habit Tracker</string>
     <string name="add_habit">Add Habit</string>
     <string name="habit_name">Habit Name</string>
     <string name="no_habits">No habits yet. Add your first habit!</string>
-    <string name="delete_habit">Delete habit</string>
+    <string name="delete_habit">Delete Habit</string>
+    <string name="delete_habit_confirmation">Are you sure you want to delete \"%s\"? This action cannot be undone.</string>
+    <string name="empty_habits_motivation">Start building your habits today! Small steps lead to big changes.</string>
+    <string name="view_all_habits">View All Habits</string>
+    <string name="back">Back</string>
 </resources>

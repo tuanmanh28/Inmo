@@ -8,35 +8,28 @@ import androidx.compose.runtime.remember
 import androidx.navigation.NavDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import com.tuanmanh.inmo.features.habittracker.navigation.HabitTrackerRoute
 import com.tuanmanh.inmo.features.habittracker.navigation.habitTrackerScreen
+import com.tuanmanh.inmo.features.habittracker.navigation.navigateToHabitList
+import com.tuanmanh.inmo.features.habittracker.navigation.navigateToHabitTracker
 
 @Composable
-fun rememberAppState(
-    navHostController: NavHostController = rememberNavController()
-): InmoAppState {
-    return remember(
-        navHostController
-    ) {
-        InmoAppState(
-            navHostController = navHostController
-        )
+fun rememberAppState(navController: NavHostController = rememberNavController()) =
+    remember(navController) {
+        InmoAppState(navController)
     }
-
-}
 
 @Stable
 class InmoAppState(
-    val navHostController: NavHostController
+    val navController: NavHostController
 ) {
     private val previousDestination = mutableStateOf<NavDestination?>(null)
 
     val currentDestination: NavDestination?
         @Composable get() {
             val currentEntry =
-                navHostController.currentBackStackEntryFlow.collectAsState(initial = null)
+                navController.currentBackStackEntryFlow.collectAsState(initial = null)
 
             return currentEntry.value?.destination.also { destination ->
                 if (destination != null) {
@@ -44,18 +37,27 @@ class InmoAppState(
                 }
             } ?: previousDestination.value
         }
+
+    fun navigateToHabitTracker() {
+        navController.navigateToHabitTracker()
+    }
+
+    fun navigateToHabitList() {
+        navController.navigateToHabitList()
+    }
 }
 
 @Composable
 fun InmoNavHost(
-    navController: NavHostController,
-    modifier: Modifier = Modifier
+    appState: InmoAppState = rememberAppState()
 ) {
     NavHost(
-        navController = navController,
-        startDestination = HabitTrackerRoute.ROUTE,
-        modifier = modifier
+        navController = appState.navController,
+        startDestination = HabitTrackerRoute.Tracker.route
     ) {
-        habitTrackerScreen()
+        habitTrackerScreen(
+            onNavigateToHabitList = appState::navigateToHabitList,
+            onNavigateToHabitTracker = appState::navigateToHabitTracker
+        )
     }
 }

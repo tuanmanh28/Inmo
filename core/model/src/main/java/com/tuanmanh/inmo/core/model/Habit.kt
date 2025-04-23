@@ -1,7 +1,11 @@
 package com.tuanmanh.inmo.core.model
 
-data class Habit (
-    val id: String,
+import java.time.LocalDate
+
+data class Habit(
+    val id: Long,
     val name: String,
-    val isCompletedToday: Boolean
+    val isCompleted: Boolean = false,
+    val streak: Int = 0,
+    val lastCompletedDate: LocalDate? = null
 )

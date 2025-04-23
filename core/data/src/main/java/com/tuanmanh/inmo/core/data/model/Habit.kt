@@ -7,11 +7,15 @@ import com.tuanmanh.inmo.core.network.model.NetworkHabit
 fun NetworkHabit.asEntity() = HabitEntity(
     id = id,
     name = name,
-    isCompletedToday = isCompletedToday
+    isCompleted = isCompleted,
+    streak = streak,
+    lastCompletedDate = lastCompletedDate
 )
 
 fun Habit.asEntity() = HabitEntity(
     id = id,
     name = name,
-    isCompletedToday = isCompletedToday
+    isCompleted = isCompleted,
+    streak = streak,
+    lastCompletedDate = lastCompletedDate
 )

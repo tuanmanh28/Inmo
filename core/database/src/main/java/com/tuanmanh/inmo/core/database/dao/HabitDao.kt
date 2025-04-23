@@ -1,33 +1,27 @@
 package com.tuanmanh.inmo.core.database.dao
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.tuanmanh.inmo.core.database.model.HabitEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface HabitDao {
+    @Query("SELECT * FROM habits")
+    fun getAllHabits(): Flow<List<HabitEntity>>
+
+    @Query("SELECT * FROM habits WHERE id = :habitId")
+    suspend fun getHabitById(habitId: Long): HabitEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertHabit(habitEntity: HabitEntity)
+    suspend fun insertHabit(habit: HabitEntity)
 
-    @Delete
-    suspend fun deleteHabit(habitEntity: HabitEntity)
+    @Update
+    suspend fun updateHabit(habit: HabitEntity)
 
-    @Query(
-        value = """
-            SELECT * FROM habits
-            WHERE id = :habitId
-        """
-    )
-    fun getHabitEntity(habitId: String): Flow<HabitEntity>
-
-    @Query(value = "SELECT * FROM habits")
-    fun getHabitEntities() : Flow<List<HabitEntity>>
-
-    @Query("UPDATE habits SET isCompletedToday = NOT isCompletedToday WHERE id = :habitId")
-    suspend fun toggleHabit(habitId: String)
+    @Query("DELETE FROM habits WHERE id = :habitId")
+    suspend fun deleteHabit(habitId: Long)
 }
