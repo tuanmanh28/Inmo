@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="feature_habittracker_title">Habits</string>
     <string name="app_name">Inmo</string>
     <string name="habit_tracker">Habit Tracker</string>
     <string name="add_habit">Add Habit</string>

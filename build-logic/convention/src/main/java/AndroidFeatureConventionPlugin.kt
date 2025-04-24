@@ -10,6 +10,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             apply(plugin = "project.android.library")
             apply(plugin = "project.hilt")
             apply(plugin = "org.jetbrains.kotlin.android")
+            apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
 
             dependencies {
                 implementation(project(":core:designsystem"))
@@ -19,6 +20,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 implementation(libs.findLibrary("androidx.lifecycle.runtimeCompose").get())
                 implementation(libs.findLibrary("coil.kt").get())
                 implementation(libs.findLibrary("coil.kt.compose").get())
+                implementation(libs.findLibrary("kotlinx.serialization.json").get())
 
             }
         }
