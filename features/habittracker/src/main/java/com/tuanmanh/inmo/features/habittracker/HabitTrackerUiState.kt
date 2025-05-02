@@ -1,18 +1,18 @@
 package com.tuanmanh.inmo.features.habittracker
 
 import com.tuanmanh.inmo.core.model.Habit
-import java.lang.Error
+import com.tuanmanh.inmo.core.model.HabitStatus
 
 sealed interface HabitTrackerUiState {
-    data object Loading: HabitTrackerUiState
+    data object Loading : HabitTrackerUiState
 
     data object Empty : HabitTrackerUiState
 
-    data class LoadFailed (
+    data class LoadFailed(
         val error: String
     ) : HabitTrackerUiState
 
     data class Success(
-        val habits: List<Habit> = emptyList()
-    ): HabitTrackerUiState
+        val habits: Map<Habit, HabitStatus> = emptyMap(),
+    ) : HabitTrackerUiState
 }

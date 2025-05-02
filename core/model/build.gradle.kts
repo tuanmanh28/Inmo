@@ -6,4 +6,6 @@ android {
     namespace = "com.tuanmanh.inmo.core.model"
 }
 
-dependencies {}
+dependencies {
+    implementation(projects.core.designsystem)
+}

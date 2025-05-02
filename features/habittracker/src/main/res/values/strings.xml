@@ -3,6 +3,7 @@
     <string name="feature_habittracker_title">Habits</string>
     <string name="app_name">Inmo</string>
     <string name="habit_tracker">Habit Tracker</string>
+    <string name="today">Today</string>
     <string name="add_habit">Add Habit</string>
     <string name="habit_name">Habit Name</string>
     <string name="no_habits">No habits yet. Add your first habit!</string>

@@ -1,4 +1,4 @@
-package com.tuanmanh.inmo.core.common.utils
+package com.tuanmanh.inmo.core.network.utils
 
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.PrimitiveKind

@@ -1,10 +1,8 @@
 package com.tuanmanh.inmo.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.internal.composableLambda
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-import com.tuanmanh.inmo.features.dashboard.DashboardScreen
 import com.tuanmanh.inmo.features.dashboard.navigation.DashboardRoute
 import com.tuanmanh.inmo.features.dashboard.navigation.dashboardScreen
 import com.tuanmanh.inmo.features.habittracker.navigation.habitTrackerScreen
@@ -24,7 +22,7 @@ fun InmoNavHost(
         navController = navController, startDestination = DashboardRoute, modifier = modifier
     ) {
         dashboardScreen()
-        habitTrackerScreen()
+        habitTrackerScreen(navController)
         nutritionScreen()
         profileScreen()
         workoutScreen()

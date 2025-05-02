@@ -7,15 +7,21 @@ import com.tuanmanh.inmo.core.network.model.NetworkHabit
 fun NetworkHabit.asEntity() = HabitEntity(
     id = id,
     name = name,
-    isCompleted = isCompleted,
-    streak = streak,
-    lastCompletedDate = lastCompletedDate
+    description = description,
+    type = type,
+    habitFrequency = habitFrequency,
+    startDate = startDate,
+    endDate = endDate,
+    reminderTime = reminderTime
 )
 
 fun Habit.asEntity() = HabitEntity(
     id = id,
     name = name,
-    isCompleted = isCompleted,
-    streak = streak,
-    lastCompletedDate = lastCompletedDate
+    description = description,
+    type = type,
+    habitFrequency = habitFrequency,
+    startDate = startDate,
+    endDate = endDate,
+    reminderTime = reminderTime
 )
